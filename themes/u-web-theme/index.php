@@ -1722,7 +1722,15 @@
 
           <?php if ( $blog_query->found_posts > 0 ) : ?>
           <div class="text-center">
-            <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium">
+            <?php
+            $blog_page_id = get_option( 'page_for_posts' );
+            if ( $blog_page_id ) {
+              $blog_url = get_permalink( $blog_page_id );
+            } else {
+              $blog_url = home_url( '/blog/' );
+            }
+            ?>
+            <a href="<?php echo esc_url( $blog_url ); ?>" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium">
               もっと見る
               <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
