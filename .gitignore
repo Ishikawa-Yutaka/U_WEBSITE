@@ -1,0 +1,92 @@
+# WordPress Core Files
+# WordPress本体は管理しない（Localが自動生成）
+/wordpress/
+/wp-admin/
+/wp-includes/
+wp-*.php
+xmlrpc.php
+readme.html
+license.txt
+
+# WordPress Configuration
+wp-config.php
+wp-config-sample.php
+
+# Uploads and Media
+# アップロードファイルは除外
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+
+# Themes (except custom theme)
+# サードパーティテーマは除外、カスタムテーマのみ管理
+wp-content/themes/twenty*/
+
+# Plugins (except custom plugins)
+# サードパーティプラグインは除外
+wp-content/plugins/*
+!wp-content/plugins/.gitkeep
+
+# Allow specific plugins if needed
+# 必要なら特定プラグインを管理対象に
+# !wp-content/plugins/my-custom-plugin/
+
+# Database
+*.sql
+*.sql.gz
+
+# Log files
+*.log
+error_log
+access_log
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor Files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Node & Build
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Composer
+/vendor/
+composer.lock
+
+# Local Environment
+.env
+.env.local
+.htaccess
+
+# Backup Files
+*.backup
+*.bak
+*.old
+*.orig
+
+# Cache
+wp-content/cache/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/wp-cache-config.php
+
+# Temp Files
+tmp/
+temp/
+*.tmp
