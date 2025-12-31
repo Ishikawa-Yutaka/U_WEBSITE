@@ -8,9 +8,6 @@
         <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
           <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-emerald-600">ホーム</a>
           <span>/</span>
-          <?php if ( get_post_type() === 'news' ) : ?>
-          <a href="<?php echo esc_url( get_post_type_archive_link( 'news' ) ); ?>" class="hover:text-emerald-600">NEWS</a>
-          <?php else : ?>
           <?php
           $blog_page_id = get_option( 'page_for_posts' );
           if ( $blog_page_id ) {
@@ -20,7 +17,6 @@
           }
           ?>
           <a href="<?php echo esc_url( $blog_url ); ?>" class="hover:text-emerald-600">ブログ</a>
-          <?php endif; ?>
           <span>/</span>
           <span class="text-gray-900 truncate"><?php the_title(); ?></span>
         </div>
@@ -39,7 +35,6 @@
               <time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time>
             </div>
 
-            <?php if ( get_post_type() === 'post' ) : ?>
             <?php
             $categories = get_the_category();
             if ( ! empty( $categories ) ) :
@@ -54,7 +49,6 @@
               </a>
               <?php endforeach; ?>
             </div>
-            <?php endif; ?>
             <?php endif; ?>
           </div>
         </header>
@@ -72,7 +66,6 @@
         </div>
 
         <!-- Tags -->
-        <?php if ( get_post_type() === 'post' ) : ?>
         <?php
         $tags = get_the_tags();
         if ( $tags ) :
@@ -91,7 +84,6 @@
             </div>
           </div>
         </div>
-        <?php endif; ?>
         <?php endif; ?>
 
         <!-- Navigation -->
@@ -130,21 +122,12 @@
           </div>
 
           <div class="mt-4 pt-4 border-t border-gray-200 text-center">
-            <?php if ( get_post_type() === 'news' ) : ?>
-            <a href="<?php echo esc_url( get_post_type_archive_link( 'news' ) ); ?>" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
-              </svg>
-              NEWS一覧に戻る
-            </a>
-            <?php else : ?>
             <a href="<?php echo esc_url( $blog_url ); ?>" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
               </svg>
               ブログ一覧に戻る
             </a>
-            <?php endif; ?>
           </div>
         </nav>
       </article>
