@@ -1,213 +1,4 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-  <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php bloginfo( 'name' ); ?> - 島根から全国へ | Web制作・デジタルマーケティング</title>
-    <meta
-      name="description"
-      content="島根県西部を拠点としたWeb制作・デジタルマーケティング企業。葬祭業・観光業特化で17サイトの実績。ホームページ担当者育成事業で内製化までサポート。"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <?php wp_head(); ?>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-          "Helvetica", "Arial", sans-serif;
-        line-height: 1.5;
-      }
-
-      /* Typography defaults */
-      h1 {
-        font-size: 2.25rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      h2 {
-        font-size: 1.875rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      h3 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      h4 {
-        font-size: 1.25rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      p {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-      }
-
-      label {
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      button {
-        font-size: 1rem;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      input {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-      }
-
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Portfolio filter active state */
-      .portfolio-filter.active {
-        background-color: #059669;
-        color: white;
-      }
-
-      /* Hidden class for mobile menu */
-      .hidden {
-        display: none;
-      }
-    </style>
-  </head>
-  <body class="bg-white">
-    <!-- Header -->
-    <header
-      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center">
-            <span class="text-2xl font-medium text-emerald-600">U_WEB</span>
-            <span class="ml-2 text-sm text-gray-500 hidden sm:inline"
-              >島根から全国へ</span
-            >
-          </div>
-
-          <!-- Desktop Navigation -->
-          <nav class="hidden md:flex space-x-8">
-            <button
-              onclick="scrollToSection('services')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              サービス
-            </button>
-            <button
-              onclick="scrollToSection('strengths')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              強み
-            </button>
-            <button
-              onclick="scrollToSection('training')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              担当者育成
-            </button>
-            <button
-              onclick="scrollToSection('portfolio')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              実績
-            </button>
-            <button
-              onclick="scrollToSection('contact')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              お問い合わせ
-            </button>
-          </nav>
-
-          <!-- Mobile Menu Button -->
-          <button
-            class="md:hidden text-gray-700"
-            onclick="toggleMobileMenu()"
-            id="mobileMenuButton"
-          >
-            <svg
-              id="menuIcon"
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-            <svg
-              id="closeIcon"
-              class="w-6 h-6 hidden"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <nav
-          id="mobileMenu"
-          class="md:hidden py-4 border-t border-gray-100 hidden"
-        >
-          <div class="flex flex-col space-y-4">
-            <button
-              onclick="scrollToSection('services')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors text-left font-medium"
-            >
-              サービス
-            </button>
-            <button
-              onclick="scrollToSection('strengths')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors text-left font-medium"
-            >
-              強み
-            </button>
-            <button
-              onclick="scrollToSection('training')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors text-left font-medium"
-            >
-              担当者育成
-            </button>
-            <button
-              onclick="scrollToSection('portfolio')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors text-left font-medium"
-            >
-              実績
-            </button>
-            <button
-              onclick="scrollToSection('contact')"
-              class="text-gray-700 hover:text-emerald-600 transition-colors text-left font-medium"
-            >
-              お問い合わせ
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
+<?php get_header(); ?>
 
     <main>
       <!-- Hero Section -->
@@ -1851,6 +1642,169 @@
         </div>
       </section>
 
+      <!-- Blog Section -->
+      <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center mb-12">
+            <div>
+              <h2 class="text-3xl md:text-4xl text-gray-900 mb-4 font-medium">
+                ブログ
+              </h2>
+              <p class="text-lg text-gray-600">
+                Web制作・デジタルマーケティングに関する情報をお届けします
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <?php
+            $blog_query = new WP_Query( array(
+              'post_type' => 'post',
+              'posts_per_page' => 5,
+              'post_status' => 'publish'
+            ) );
+
+            if ( $blog_query->have_posts() ) :
+              $post_count = 0;
+              while ( $blog_query->have_posts() ) : $blog_query->the_post();
+                $post_count++;
+                if ( $post_count > 5 ) break;
+            ?>
+            <article class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+              <?php if ( has_post_thumbnail() ) : ?>
+              <a href="<?php the_permalink(); ?>">
+                <div class="aspect-video overflow-hidden">
+                  <?php the_post_thumbnail( 'medium', array( 'class' => 'w-full h-full object-cover hover:scale-105 transition-transform duration-300' ) ); ?>
+                </div>
+              </a>
+              <?php else : ?>
+              <a href="<?php the_permalink(); ?>">
+                <div class="aspect-video bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center">
+                  <svg class="w-16 h-16 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                  </svg>
+                </div>
+              </a>
+              <?php endif; ?>
+
+              <div class="p-6">
+                <div class="flex items-center gap-2 mb-3">
+                  <time class="text-sm text-gray-500"><?php echo get_the_date(); ?></time>
+                  <?php
+                  $categories = get_the_category();
+                  if ( ! empty( $categories ) ) :
+                    echo '<span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-medium">' . esc_html( $categories[0]->name ) . '</span>';
+                  endif;
+                  ?>
+                </div>
+
+                <h3 class="text-xl text-gray-900 mb-3 font-medium line-clamp-2">
+                  <a href="<?php the_permalink(); ?>" class="hover:text-emerald-600 transition-colors">
+                    <?php the_title(); ?>
+                  </a>
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                  <?php echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
+                </p>
+              </div>
+            </article>
+            <?php
+              endwhile;
+              wp_reset_postdata();
+            else :
+            ?>
+            <div class="col-span-full text-center py-12">
+              <p class="text-gray-500">まだ記事がありません</p>
+            </div>
+            <?php endif; ?>
+          </div>
+
+          <?php if ( $blog_query->found_posts > 0 ) : ?>
+          <div class="text-center">
+            <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium">
+              もっと見る
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <?php endif; ?>
+        </div>
+      </section>
+
+      <!-- NEWS Section -->
+      <section class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center mb-12">
+            <div>
+              <h2 class="text-3xl md:text-4xl text-gray-900 mb-4 font-medium">
+                NEWS
+              </h2>
+              <p class="text-lg text-gray-600">
+                U_WEBからのお知らせ・最新情報
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-4 mb-12">
+            <?php
+            $news_query = new WP_Query( array(
+              'post_type' => 'news',
+              'posts_per_page' => 5,
+              'post_status' => 'publish'
+            ) );
+
+            if ( $news_query->have_posts() ) :
+              $news_count = 0;
+              while ( $news_query->have_posts() ) : $news_query->the_post();
+                $news_count++;
+                if ( $news_count > 5 ) break;
+            ?>
+            <article class="bg-white rounded-xl p-6 border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all">
+              <div class="flex flex-col md:flex-row md:items-center gap-4">
+                <time class="text-emerald-600 font-medium flex-shrink-0">
+                  <?php echo get_the_date(); ?>
+                </time>
+
+                <h3 class="text-lg text-gray-900 font-medium flex-grow">
+                  <a href="<?php the_permalink(); ?>" class="hover:text-emerald-600 transition-colors">
+                    <?php the_title(); ?>
+                  </a>
+                </h3>
+
+                <a href="<?php the_permalink(); ?>" class="text-emerald-600 hover:text-emerald-700 flex items-center gap-1 text-sm font-medium flex-shrink-0">
+                  詳細を見る
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+            <?php
+              endwhile;
+              wp_reset_postdata();
+            else :
+            ?>
+            <div class="text-center py-12 bg-white rounded-xl">
+              <p class="text-gray-500">お知らせはまだありません</p>
+            </div>
+            <?php endif; ?>
+          </div>
+
+          <?php if ( $news_query->found_posts > 0 ) : ?>
+          <div class="text-center">
+            <a href="<?php echo get_post_type_archive_link( 'news' ); ?>" class="inline-flex items-center px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors font-medium">
+              もっと見る
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          <?php endif; ?>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section
         id="contact"
@@ -2148,189 +2102,4 @@
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid md:grid-cols-4 gap-8 mb-8">
-          <!-- Company Info -->
-          <div class="md:col-span-2">
-            <div class="text-2xl mb-4 text-emerald-400 font-medium">
-              U_WEB
-            </div>
-            <p class="text-gray-400 leading-relaxed mb-4">
-              島根県西部を拠点に、地方企業のデジタル化を支援。Web制作・アプリ開発・デジタルマーケティング・ホームページ担当者育成事業を展開しています。
-            </p>
-            <div class="text-sm text-gray-500 mb-4">
-              島根県西部 | 葬祭業・観光業特化 | 17サイトの実績
-            </div>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="Twitter"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="GitHub"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="mailto:info@u-web-shimane.com"
-                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-emerald-600 transition-colors"
-                aria-label="Email"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Services -->
-          <div>
-            <h3 class="mb-4 font-medium">サービス</h3>
-            <ul class="space-y-2">
-              <li>
-                <button
-                  onclick="scrollToSection('services')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  Webサイト制作
-                </button>
-              </li>
-              <li>
-                <button
-                  onclick="scrollToSection('services')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  アプリ開発
-                </button>
-              </li>
-              <li>
-                <button
-                  onclick="scrollToSection('services')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  Webマーケティング
-                </button>
-              </li>
-              <li>
-                <button
-                  onclick="scrollToSection('training')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  担当者育成事業
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Links -->
-          <div>
-            <h3 class="mb-4 font-medium">メニュー</h3>
-            <ul class="space-y-2">
-              <li>
-                <button
-                  onclick="scrollToSection('strengths')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  強み
-                </button>
-              </li>
-              <li>
-                <button
-                  onclick="scrollToSection('portfolio')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  制作実績
-                </button>
-              </li>
-              <li>
-                <button
-                  onclick="scrollToSection('contact')"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  お問い合わせ
-                </button>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >ブログ</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Bottom Bar -->
-        <div class="pt-8 border-t border-gray-800">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 U_WEB. All rights reserved. |
-              島根県西部を拠点とした地方���生パートナー
-            </div>
-            <div class="flex space-x-6 text-sm">
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors"
-                >プライバシーポリシー</a
-              >
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors"
-                >利用規約</a
-              >
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors"
-                >特定商取引法に基づく表記</a
-              >
-              <button
-                onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-                class="text-gray-400 hover:text-white transition-colors"
-              >
-                ↑ トップへ
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <?php wp_footer(); ?>
-  </body>
-</html>
+<?php get_footer();
