@@ -1,4 +1,4 @@
-# WebCraft WordPress Project
+# U_WEB WordPress Project
 
 島根県西部を拠点としたWeb制作・デジタルマーケティング企業のWordPressサイト
 
@@ -26,7 +26,7 @@
 ### 1. Localでサイトを作成
 ```bash
 # Localアプリで新規サイト作成
-サイト名: webcraft-site
+サイト名: u-web-site
 環境: Preferred
 ```
 
@@ -39,7 +39,7 @@ cd wp_code
 ### 3. テーマを配置
 ```bash
 # sample_codeのデザインをWordPressテーマ化
-# wp-content/themes/webcraft-theme/ に配置
+# wp-content/themes/u-web-theme/ に配置
 ```
 
 ### 4. 必要なプラグインをインストール
@@ -57,7 +57,7 @@ wp_code/
 │   └── index.html
 └── wp-content/
     └── themes/
-        └── webcraft-theme/ # カスタムテーマ（開発予定）
+        └── u-web-theme/    # カスタムテーマ（開発予定）
 ```
 
 ## デプロイ手順
